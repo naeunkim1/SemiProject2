@@ -1,1 +1,3 @@
 # SemiProject2
+
+https://trello.com/b/6EC0WGEd/%EB%A9%80%ED%8B%B0%EC%BA%A0%ED%8D%BC%EC%8A%A4-%EB%91%90%EB%B2%88%EC%A7%B8-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8
