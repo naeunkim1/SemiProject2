@@ -8,6 +8,5 @@ def replace_in_file(file_path, old_str, new_str):
     
     # old_str -> new_str 치환
     fw = open(file_path, 'w')
-    for line in lines:
-        fw.write(line.replace(old_str, new_str))
+    fw.write(lines.replace(old_str, new_str))
     fw.close()
