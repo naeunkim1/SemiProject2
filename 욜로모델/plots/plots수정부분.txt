@@ -1,0 +1,3 @@
+yolov5/utils/plots.py
+
+def box_label 수정했습니다

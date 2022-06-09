@@ -28,6 +28,12 @@ import argparse
 import os
 import sys
 from pathlib import Path
+from datetime import datetime
+from pytz import timezone
+ 
+# now = datetime.now()
+today = datetime.now(timezone('Asia/Seoul'))
+
 
 import torch
 import torch.backends.cudnn as cudnn
@@ -44,6 +50,8 @@ from utils.general import (LOGGER, check_file, check_img_size, check_imshow, che
                            increment_path, non_max_suppression, print_args, scale_coords, strip_optimizer, xyxy2xywh)
 from utils.plots import Annotator, colors, save_one_box
 from utils.torch_utils import select_device, time_sync
+
+
 
 
 @torch.no_grad()
@@ -75,6 +83,7 @@ def run(
         half=False,  # use FP16 half-precision inference
         dnn=False,  # use OpenCV DNN for ONNX inference
 ):
+    
     source = str(source)
     save_img = not nosave and not source.endswith('.txt')  # save inference images
     is_file = Path(source).suffix[1:] in (IMG_FORMATS + VID_FORMATS)
@@ -116,7 +125,7 @@ def run(
             im = im[None]  # expand for batch dim
         t2 = time_sync()
         dt[0] += t2 - t1
-
+        
         # Inference
         visualize = increment_path(save_dir / Path(path).stem, mkdir=True) if visualize else False
         pred = model(im, augment=augment, visualize=visualize)
@@ -154,9 +163,11 @@ def run(
                 for c in det[:, -1].unique():
                     n = (det[:, -1] == c).sum()  # detections per class
                     s += f"{n} {names[int(c)]}{'s' * (n > 1)}, "  # add to string
-
+                
                 # Write results
+                cnt=0
                 for *xyxy, conf, cls in reversed(det):
+                    
                     if save_txt:  # Write to file
                         xywh = (xyxy2xywh(torch.tensor(xyxy).view(1, 4)) / gn).view(-1).tolist()  # normalized xywh
                         line = (cls, *xywh, conf) if save_conf else (cls, *xywh)  # label format
@@ -165,46 +176,60 @@ def run(
 
                     if save_img or save_crop or view_img:  # Add bbox to image
                         c = int(cls)  # integer class
-                        label = None if hide_labels else (names[c] if hide_conf else f'{names[c]} {conf:.2f}')
+                        label = None if hide_labels else (names[c] if hide_conf else f'{names[c]}')
                         annotator.box_label(xyxy, label, color=colors(c, True))
 
+                        cv2.putText(im0, f'{today.year}/{today.month}/{today.day}/{today.hour}:{today.minute}',
+                                    (30,30),
+                                    cv2.FONT_HERSHEY_SIMPLEX ,
+                                    1.2,
+                                    (255, 255, 255),2)
+                    
+                        
                         if 'rice' in label:
-                          
+                          cnt += 200
                           cv2.putText(im0, '200kcal',
-                                    (int(xyxy[2]-60), int((xyxy[1]+xyxy[3])/2)-25),
+                                    (int(xyxy[0]+20), int(xyxy[1])+80),
                                     cv2.FONT_HERSHEY_SIMPLEX ,
-                                    0.7,
-                                    (255, 0, 255),2)
+                                    1.2,
+                                    (255, 255, 255),2)
+                           
                         if 'seaweed_soup' in label:
+                          cnt += 230
                           cv2.putText(im0, '230kcal',
-                                    (int(xyxy[2]-60), int((xyxy[1]+xyxy[3])/2)-25),
+                                    (int(xyxy[0]+20), int(xyxy[1])+80),
                                     cv2.FONT_HERSHEY_SIMPLEX ,
-                                    0.7,
-                                    (255, 0, 255),2)
+                                    1.2,
+                                    (255, 255, 255),2)
                         if 'egg_roll' in label:
+                          cnt +=100
                           cv2.putText(im0, '100kcal',
-                                    (int(xyxy[2]-60), int((xyxy[1]+xyxy[3])/2)-25),
+                                    (int(xyxy[0]+20), int(xyxy[1])+80),
                                     cv2.FONT_HERSHEY_SIMPLEX ,
-                                    0.7,
-                                    (255, 0, 255),2)
+                                    1.2,
+                                    (255, 255, 255),2)
                         if 'kimchi' in label:
+                          cnt+=50
                           cv2.putText(im0, '50kcal',
-                                    (int(xyxy[2]-60), int((xyxy[1]+xyxy[3])/2)-25),
+                                    (int(xyxy[0]+20), int(xyxy[1])+80),
                                     cv2.FONT_HERSHEY_SIMPLEX ,
-                                    0.7,
-                                    (255, 0, 255),2)
+                                    1.2,
+                                    (255, 255, 255),2)
                         if 'boolgogi' in label:
+                          cnt+=300
                           cv2.putText(im0, '300kcal',
-                                    (int(xyxy[2]-60), int((xyxy[1]+xyxy[3])/2)-25),
+                                    (int(xyxy[0]+20), int(xyxy[1])+80),
                                     cv2.FONT_HERSHEY_SIMPLEX ,
-                                    0.7,
-                                    (255, 0, 255),2)
-
-
-
+                                    1.2,
+                                    (255, 255, 255),2)
 
                     if save_crop:
                         save_one_box(xyxy, imc, file=save_dir / 'crops' / names[c] / f'{p.stem}.jpg', BGR=True)
+                cv2.putText(im0, f'total_calories: {cnt}Kcal',
+                          (400,30),
+                          cv2.FONT_HERSHEY_SIMPLEX ,
+                          1.2,
+                          (255, 255, 255),2)
 
             # Stream results
             im0 = annotator.result()
