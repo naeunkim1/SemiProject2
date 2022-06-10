@@ -186,38 +186,158 @@ def run(
                                     (255, 255, 255),2)
                     
                         
-                        if 'rice' in label:
-                          cnt += 200
-                          cv2.putText(im0, '200kcal',
+                        if 'eggplant' in label:
+                          cnt += 22
+                          cv2.putText(im0, '22kcal',
                                     (int(xyxy[0]+20), int(xyxy[1])+80),
                                     cv2.FONT_HERSHEY_SIMPLEX ,
                                     1.2,
                                     (255, 255, 255),2)
+                        
                            
-                        if 'seaweed_soup' in label:
-                          cnt += 230
-                          cv2.putText(im0, '230kcal',
+                        if 'Spinach_greens' in label:
+                          cnt += 37
+                          cv2.putText(im0, '37kcal',
                                     (int(xyxy[0]+20), int(xyxy[1])+80),
                                     cv2.FONT_HERSHEY_SIMPLEX ,
                                     1.2,
                                     (255, 255, 255),2)
-                        if 'egg_roll' in label:
-                          cnt +=100
-                          cv2.putText(im0, '100kcal',
+                        if 'Rolled_egg' in label:
+                          cnt +=172
+                          cv2.putText(im0, '172kcal',
                                     (int(xyxy[0]+20), int(xyxy[1])+80),
                                     cv2.FONT_HERSHEY_SIMPLEX ,
                                     1.2,
                                     (255, 255, 255),2)
-                        if 'kimchi' in label:
-                          cnt+=50
+
+                        if 'Kimchi' in label:
+                          cnt+=18
+                          cv2.putText(im0, '18kcal',
+                                    (int(xyxy[0]+20), int(xyxy[1])+80),
+                                    cv2.FONT_HERSHEY_SIMPLEX ,
+                                    1.2,
+                                    (255, 255, 255),2)
+                        if 'Rice' in label:
+                          cnt+=386
+                          cv2.putText(im0, '386kcal',
+                                    (int(xyxy[0]+20), int(xyxy[1])+80),
+                                    cv2.FONT_HERSHEY_SIMPLEX ,
+                                    1.2,
+                                    (255, 255, 255),2)
+                        if 'Bulgogi' in label:
+                          cnt += 334
+                          cv2.putText(im0, '334kcal',
+                                    (int(xyxy[0]+20), int(xyxy[1])+80),
+                                    cv2.FONT_HERSHEY_SIMPLEX ,
+                                    1.2,
+                                    (255, 255, 255),2)
+                        
+                           
+                        if 'Seaweed soup' in label:
+                          cnt += 50
                           cv2.putText(im0, '50kcal',
                                     (int(xyxy[0]+20), int(xyxy[1])+80),
                                     cv2.FONT_HERSHEY_SIMPLEX ,
                                     1.2,
                                     (255, 255, 255),2)
-                        if 'boolgogi' in label:
-                          cnt+=300
-                          cv2.putText(im0, '300kcal',
+                        if 'Brown_rice' in label:
+                          cnt +=318
+                          cv2.putText(im0, '318kcal',
+                                    (int(xyxy[0]+20), int(xyxy[1])+80),
+                                    cv2.FONT_HERSHEY_SIMPLEX ,
+                                    1.2,
+                                    (255, 255, 255),2)
+                        if 'Mul_naengmyeon' in label:
+                          cnt+=579
+                          cv2.putText(im0, '579kcal',
+                                    (int(xyxy[0]+20), int(xyxy[1])+80),
+                                    cv2.FONT_HERSHEY_SIMPLEX ,
+                                    1.2,
+                                    (255, 255, 255),2)
+                        if 'Bibim_naengmyeon' in label:
+                          cnt+=594
+                          cv2.putText(im0, '594kcal',
+                                    (int(xyxy[0]+20), int(xyxy[1])+80),
+                                    cv2.FONT_HERSHEY_SIMPLEX ,
+                                    1.2,
+                                    (255, 255, 255),2)
+                        if 'Sujebi' in label:
+                          cnt += 622
+                          cv2.putText(im0, '622kcal',
+                                    (int(xyxy[0]+20), int(xyxy[1])+80),
+                                    cv2.FONT_HERSHEY_SIMPLEX ,
+                                    1.2,
+                                    (255, 255, 255),2)
+                        
+                           
+                        if 'Beef_radish_soup' in label:
+                          cnt += 125
+                          cv2.putText(im0, '125kcal',
+                                    (int(xyxy[0]+20), int(xyxy[1])+80),
+                                    cv2.FONT_HERSHEY_SIMPLEX ,
+                                    1.2,
+                                    (255, 255, 255),2)
+                        if 'Siraegi_Doenjang_soup' in label:
+                          cnt +=99
+                          cv2.putText(im0, '99kcal',
+                                    (int(xyxy[0]+20), int(xyxy[1])+80),
+                                    cv2.FONT_HERSHEY_SIMPLEX ,
+                                    1.2,
+                                    (255, 255, 255),2)
+                        if 'Doenjang_stew' in label:
+                          cnt+=147
+                          cv2.putText(im0, '147kcal',
+                                    (int(xyxy[0]+20), int(xyxy[1])+80),
+                                    cv2.FONT_HERSHEY_SIMPLEX ,
+                                    1.2,
+                                    (255, 255, 255),2)
+                        if 'Tuna_kimchi_stew' in label:
+                          cnt+=193
+                          cv2.putText(im0, '193kcal',
+                                    (int(xyxy[0]+20), int(xyxy[1])+80),
+                                    cv2.FONT_HERSHEY_SIMPLEX ,
+                                    1.2,
+                                    (255, 255, 255),2)
+                        if 'Jjimdak' in label:
+                          cnt += 272
+                          cv2.putText(im0, '272kcal',
+                                    (int(xyxy[0]+20), int(xyxy[1])+80),
+                                    cv2.FONT_HERSHEY_SIMPLEX ,
+                                    1.2,
+                                    (255, 255, 255),2)
+                        
+                           
+                        if 'Roasted_tofu' in label:
+                          cnt += 90
+                          cv2.putText(im0, '90kcal',
+                                    (int(xyxy[0]+20), int(xyxy[1])+80),
+                                    cv2.FONT_HERSHEY_SIMPLEX ,
+                                    1.2,
+                                    (255, 255, 255),2)
+                        if 'Pajeon' in label:
+                          cnt +=280
+                          cv2.putText(im0, '280kcal',
+                                    (int(xyxy[0]+20), int(xyxy[1])+80),
+                                    cv2.FONT_HERSHEY_SIMPLEX ,
+                                    1.2,
+                                    (255, 255, 255),2)
+                        if 'Stir_fried_anchovy' in label:
+                          cnt+=69
+                          cv2.putText(im0, '69kcal',
+                                    (int(xyxy[0]+20), int(xyxy[1])+80),
+                                    cv2.FONT_HERSHEY_SIMPLEX ,
+                                    1.2,
+                                    (255, 255, 255),2)
+                        if 'Simmered_mackerel' in label:
+                          cnt+=459
+                          cv2.putText(im0, '459kcal',
+                                    (int(xyxy[0]+20), int(xyxy[1])+80),
+                                    cv2.FONT_HERSHEY_SIMPLEX ,
+                                    1.2,
+                                    (255, 255, 255),2)
+                        if 'Acorn_muk' in label:
+                          cnt+=43
+                          cv2.putText(im0, '43kcal',
                                     (int(xyxy[0]+20), int(xyxy[1])+80),
                                     cv2.FONT_HERSHEY_SIMPLEX ,
                                     1.2,
@@ -225,11 +345,19 @@ def run(
 
                     if save_crop:
                         save_one_box(xyxy, imc, file=save_dir / 'crops' / names[c] / f'{p.stem}.jpg', BGR=True)
-                cv2.putText(im0, f'total_calories: {cnt}Kcal',
-                          (400,30),
-                          cv2.FONT_HERSHEY_SIMPLEX ,
-                          1.2,
-                          (255, 255, 255),2)
+                if cnt >=900:    
+                  cv2.putText(im0, f'total_calories: {cnt}Kcal',
+                            (450,30),
+                            cv2.FONT_HERSHEY_SIMPLEX ,
+                            1.2,
+                            (0, 0, 255),2)
+                else:
+                  cv2.putText(im0, f'total_calories: {cnt}Kcal',
+                            (450,30),
+                            cv2.FONT_HERSHEY_SIMPLEX ,
+                            1.2,
+                            (255, 255, 255),2)
+
 
             # Stream results
             im0 = annotator.result()
